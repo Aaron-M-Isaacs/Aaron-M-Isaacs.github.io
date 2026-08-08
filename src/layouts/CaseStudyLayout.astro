@@ -1,0 +1,96 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  entry: CollectionEntry<'caseStudies'>;
+}
+
+const { entry } = Astro.props;
+const { title, summary, stack, metrics } = entry.data;
+---
+
+<BaseLayout title={`${title} — Aaron Isaacs`} description={summary} ogType="article">
+  <div class="wrap">
+    <article>
+      <header class="head">
+        <p class="eyebrow">Case study</p>
+        <h1>{title}</h1>
+        <p class="summary">{summary}</p>
+
+        <ul class="chips">
+          {stack.map((tech) => <li class="chip">{tech}</li>)}
+        </ul>
+
+        {
+          metrics.length > 0 && (
+            <dl class="metrics">
+              {metrics.map((metric) => (
+                <div>
+                  <dt>{metric.label}</dt>
+                  <dd>{metric.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )
+        }
+      </header>
+
+      <div class="prose">
+        <slot />
+      </div>
+    </article>
+
+    <p class="back">
+      <a href="/case-studies/">&larr; All case studies</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .head {
+    padding-block: var(--space-xl) var(--space-l);
+    border-block-end: 1px solid var(--border);
+    margin-block-end: var(--space-xl);
+    max-width: var(--measure);
+  }
+
+  .head h1 {
+    margin-block-start: var(--space-xs);
+  }
+
+  .summary {
+    color: var(--text-muted);
+    margin-block-start: var(--space-m);
+  }
+
+  .head .chips {
+    margin-block-start: var(--space-m);
+  }
+
+  .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-l);
+    margin-block-start: var(--space-l);
+  }
+
+  .metrics dt {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--text-dim);
+  }
+
+  .metrics dd {
+    font-family: var(--font-mono);
+    font-size: var(--step-1);
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .back {
+    margin-block-start: var(--space-xl);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+</style>

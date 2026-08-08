@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leg-0.github.io/sitemap-index.xml

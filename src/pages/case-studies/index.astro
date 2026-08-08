@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+
+const entries = (await getCollection('caseStudies', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout
+  title="Case Studies — Aaron Isaacs"
+  description="Write-ups on API security architecture, a self-updating Go health check, and choosing a Python concurrency model by benchmark."
+>
+  <div class="wrap">
+    <header class="head">
+      <p class="eyebrow">Case studies</p>
+      <h1>Work worth explaining</h1>
+      <p class="lede">
+        Each of these came down to a decision rather than an implementation. The
+        write-ups focus on what the alternatives were and why one won.
+      </p>
+    </header>
+
+    <ul class="grid">
+      {entries.map((entry) => <li><CaseStudyCard entry={entry} /></li>)}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .head {
+    padding-block: var(--space-xl) var(--space-l);
+    max-width: var(--measure);
+  }
+
+  .head h1 {
+    margin-block-start: var(--space-xs);
+  }
+
+  .lede {
+    color: var(--text-muted);
+    margin-block-start: var(--space-m);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--space-m);
+    list-style: none;
+    padding: 0;
+  }
+</style>

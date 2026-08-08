@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { contactLinks } from '../data/site';
+
+const principles = [
+  {
+    title: 'Start from the problem',
+    body: 'Whiteboard the services, events, and APIs as boxes and lines first. Prototype the top two or three options when that\'s feasible. When it isn\'t, weigh complexity and team familiarity over theoretical optimality — and prefer several single-purpose resources over one resource doing many things.',
+  },
+  {
+    title: 'Slow is smooth, smooth is fast',
+    body: 'Pick the tool the team can actually operate over the most technically elegant option. Elegance has an operating cost, and somebody pays it every week after the person who chose it has moved on.',
+  },
+  {
+    title: 'Security is a practice, not a phase',
+    body: 'I don\'t disable checks in development because it\'s inconvenient — SSL verification stays on. Habits carry into production, and the habit is the thing you are actually building.',
+  },
+  {
+    title: 'Events over synchronous calls where reliability matters',
+    body: 'Events queue when something downstream is broken. APIs fail silently. When a dropped message is genuinely unacceptable, that difference decides the architecture.',
+  },
+];
+---
+
+<BaseLayout
+  title="About — Aaron Isaacs"
+  description="Lead Backend Software Engineer at Koch Capabilities. Python, AWS, and distributed systems, with a working interest in Go and concurrency."
+>
+  <div class="wrap">
+    <header class="head">
+      <p class="eyebrow">About</p>
+      <h1>How I think about building things</h1>
+    </header>
+
+    <div class="prose intro">
+      <p>
+        I'm a Lead Backend Software Engineer and Technical Product Lead at Koch
+        Capabilities, with roughly three and a half years of experience — about two
+        and a half of those as an individual contributor. My working stack is Python,
+        AWS, and distributed systems, and I've been building real depth in Go.
+      </p>
+      <p>
+        Go was a deliberate choice over Rust. Not because Rust is worse, but because
+        Go's use cases — services and Lambdas — match the work I actually do. That's
+        the same reasoning I apply to most tooling decisions: fit to the problem in
+        front of me beats fit to the problem I'd like to have.
+      </p>
+      <p>
+        The through-line in my work is concurrency and parallelism. It started with a
+        server-patching tool that cut a process by roughly 120 hours, and it's stayed
+        interesting ever since — it's the area where intuition is least reliable and
+        measurement pays off most.
+      </p>
+    </div>
+
+    <section aria-labelledby="principles">
+      <h2 id="principles">Principles</h2>
+      <ul class="principles">
+        {
+          principles.map((principle) => (
+            <li>
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section aria-labelledby="background">
+      <h2 id="background">Background</h2>
+      <dl class="facts">
+        <div>
+          <dt>Current role</dt>
+          <dd>Lead Backend Software Engineer / Technical Product Lead, Koch Capabilities, LLC</dd>
+        </div>
+        <div>
+          <dt>Certification</dt>
+          <dd>SnowPro Core (Snowflake) — June 2025</dd>
+        </div>
+        <div>
+          <dt>Education</dt>
+          <dd>
+            B.S. Electrical Engineering, Minor in Computer Science — Wichita State
+            University, June 2023. Magna Cum Laude, 3.65/4.0.
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="contact">
+      <h2 id="contact">Get in touch</h2>
+      <p class="contact-lede">
+        I'm open to Software Engineer, Backend, and Cloud/DevOps roles, fully remote.
+      </p>
+      <ul class="chips">
+        {
+          contactLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .head {
+    padding-block: var(--space-xl) var(--space-l);
+    max-width: var(--measure);
+  }
+
+  .head h1 {
+    margin-block-start: var(--space-xs);
+  }
+
+  .intro {
+    font-size: var(--step-0);
+  }
+
+  section {
+    margin-block-start: var(--space-2xl);
+    max-width: var(--measure);
+  }
+
+  .principles {
+    list-style: none;
+    padding: 0;
+    margin-block-start: var(--space-l);
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  .principles h3 {
+    color: var(--accent);
+    font-size: var(--step-0);
+  }
+
+  .principles p {
+    color: var(--text-muted);
+    margin-block-start: var(--space-xs);
+  }
+
+  .facts {
+    margin-block-start: var(--space-l);
+    display: grid;
+    gap: var(--space-m);
+  }
+
+  .facts dt {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--text-dim);
+  }
+
+  .facts dd {
+    margin: 0;
+    margin-block-start: var(--space-2xs);
+  }
+
+  .contact-lede {
+    color: var(--text-muted);
+    margin-block: var(--space-m);
+  }
+
+  .chips a {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: var(--space-xs) var(--space-m);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .chips a:hover {
+    border-color: var(--accent);
+  }
+</style>

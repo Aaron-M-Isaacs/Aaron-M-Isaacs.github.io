@@ -1,0 +1,102 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'caseStudies'>;
+}
+
+const { entry } = Astro.props;
+const { title, summary, stack, metrics } = entry.data;
+const href = `/case-studies/${entry.id}/`;
+---
+
+<article class="card">
+  <h3>
+    <a href={href}>{title}</a>
+  </h3>
+  <p class="summary">{summary}</p>
+
+  {
+    metrics.length > 0 && (
+      <dl class="metrics">
+        {metrics.map((metric) => (
+          <div>
+            <dt>{metric.label}</dt>
+            <dd>{metric.value}</dd>
+          </div>
+        ))}
+      </dl>
+    )
+  }
+
+  <ul class="chips">
+    {stack.map((tech) => <li class="chip">{tech}</li>)}
+  </ul>
+</article>
+
+<style>
+  .card {
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    height: 100%;
+  }
+
+  .card:hover {
+    border-color: var(--border-strong);
+  }
+
+  h3 a {
+    text-decoration: none;
+  }
+
+  h3 a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  /* Makes the whole card clickable without nesting interactive elements. */
+  h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .card {
+    position: relative;
+  }
+
+  .summary {
+    color: var(--text-muted);
+    font-size: var(--step--1);
+  }
+
+  .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    margin: 0;
+  }
+
+  .metrics dt {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--text-dim);
+  }
+
+  .metrics dd {
+    font-family: var(--font-mono);
+    font-size: var(--step-0);
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .chips {
+    margin-block-start: auto;
+    padding-block-start: var(--space-xs);
+  }
+</style>

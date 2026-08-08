@@ -1,17 +1,141 @@
 ---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import { site, contactLinks } from '../data/site';
+
+const entries = (await getCollection('caseStudies', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order
+);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Aaron Isaacs</title>
-  </head>
-  <body>
-    <main>
-      <h1>Aaron Isaacs</h1>
-      <p>Portfolio site — deploy pipeline check.</p>
-    </main>
-  </body>
-</html>
+<BaseLayout
+  title="Aaron Isaacs — Backend & Cloud Engineer"
+  description="Lead Backend Software Engineer working in Python, AWS, and distributed systems, with a working interest in Go and concurrency. Open to remote backend, cloud, and DevOps roles."
+>
+  <div class="wrap">
+    <section class="hero">
+      <p class="eyebrow">{site.role}</p>
+      <h1>{site.name}</h1>
+      <p class="lede">
+        I build backend services and cloud infrastructure — mostly Python and AWS,
+        increasingly Go. The thing I actually enjoy is concurrency: figuring out what
+        can happen at the same time, and proving it rather than assuming it.
+      </p>
+      <p class="availability">
+        Open to Software Engineer, Backend, and Cloud/DevOps roles — fully remote.
+      </p>
+      <ul class="actions">
+        {
+          contactLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <hr />
+
+    <section aria-labelledby="work">
+      <h2 id="work">Selected work</h2>
+      <p class="section-lede">
+        Three decisions I can defend in detail — an auth boundary, a language choice,
+        and a default I changed after measuring it.
+      </p>
+      <ul class="grid">
+        {entries.map((entry) => <li><CaseStudyCard entry={entry} /></li>)}
+      </ul>
+    </section>
+
+    <hr />
+
+    <section aria-labelledby="approach" class="approach">
+      <h2 id="approach">How I work</h2>
+      <p>
+        Start from the problem, not the stack. Whiteboard the services, events, and
+        APIs as boxes and lines, prototype the top two or three options when that's
+        feasible, and when it isn't, weigh complexity and team familiarity over
+        theoretical optimality.
+      </p>
+      <p>
+        Slow is smooth, smooth is fast. The most elegant option has an operating cost
+        that somebody pays every week, so I'd rather ship something the team can
+        actually run.
+      </p>
+      <p>
+        <a href="/about/">More on how I think about this &rarr;</a>
+      </p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: var(--space-2xl) var(--space-xl);
+    max-width: var(--measure);
+  }
+
+  .hero h1 {
+    margin-block-start: var(--space-xs);
+  }
+
+  .lede {
+    font-size: var(--step-1);
+    color: var(--text-muted);
+    margin-block-start: var(--space-m);
+  }
+
+  .availability {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--accent);
+    margin-block-start: var(--space-m);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    list-style: none;
+    padding: 0;
+    margin-block-start: var(--space-l);
+  }
+
+  .actions a {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: var(--space-xs) var(--space-m);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .actions a:hover {
+    border-color: var(--accent);
+  }
+
+  .section-lede {
+    color: var(--text-muted);
+    max-width: var(--measure);
+    margin-block: var(--space-s) var(--space-l);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--space-m);
+    list-style: none;
+    padding: 0;
+  }
+
+  .approach {
+    max-width: var(--measure);
+  }
+
+  .approach p {
+    margin-block-start: var(--space-m);
+  }
+</style>
