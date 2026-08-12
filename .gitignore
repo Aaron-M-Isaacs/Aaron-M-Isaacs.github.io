@@ -2,6 +2,7 @@
 *resume*
 context.md
 .omc*
+*.claude
 
 # build output
 dist/
