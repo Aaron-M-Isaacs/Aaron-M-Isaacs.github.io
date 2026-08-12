@@ -13,7 +13,7 @@ metrics:
   - label: Team size
     value: '4 engineers'
   - label: Auth code in the API
-    value: 'None'
+    value: 'External'
 order: 1
 draft: false
 ---
