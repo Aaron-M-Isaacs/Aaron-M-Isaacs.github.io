@@ -1,16 +1,20 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
-  entry: CollectionEntry<'caseStudies'>;
+  entry: CollectionEntry<"caseStudies">;
 }
 
 const { entry } = Astro.props;
 const { title, summary, stack, metrics } = entry.data;
 ---
 
-<BaseLayout title={`${title} — Aaron Isaacs`} description={summary} ogType="article">
+<BaseLayout
+  title={`${title} — Aaron Isaacs`}
+  description={summary}
+  ogType="article"
+>
   <div class="wrap">
     <article>
       <header class="head">

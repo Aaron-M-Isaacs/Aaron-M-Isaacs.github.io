@@ -1,13 +1,13 @@
 ---
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/case-studies/', label: 'Case Studies' },
-  { href: '/about/', label: 'About' },
+  { href: "/", label: "Home" },
+  { href: "/case-studies/", label: "Case Studies" },
+  { href: "/about/", label: "About" },
 ];
 
 // Normalise so "/about" and "/about/" both mark the same nav item current.
-const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
-const isCurrent = (href: string) => (href.replace(/\/+$/, '') || '/') === path;
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isCurrent = (href: string) => (href.replace(/\/+$/, "") || "/") === path;
 ---
 
 <header class="site-header">
@@ -20,7 +20,7 @@ const isCurrent = (href: string) => (href.replace(/\/+$/, '') || '/') === path;
             <li>
               <a
                 href={link.href}
-                aria-current={isCurrent(link.href) ? 'page' : undefined}
+                aria-current={isCurrent(link.href) ? "page" : undefined}
               >
                 {link.label}
               </a>
@@ -77,7 +77,7 @@ const isCurrent = (href: string) => (href.replace(/\/+$/, '') || '/') === path;
     color: var(--text);
   }
 
-  nav a[aria-current='page'] {
+  nav a[aria-current="page"] {
     color: var(--accent);
   }
 </style>

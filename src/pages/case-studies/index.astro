@@ -1,11 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CaseStudyCard from "../../components/CaseStudyCard.astro";
 
-const entries = (await getCollection('caseStudies', ({ data }) => !data.draft)).sort(
-  (a, b) => a.data.order - b.data.order
-);
+const entries = (
+  await getCollection("caseStudies", ({ data }) => !data.draft)
+).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout
@@ -23,7 +23,13 @@ const entries = (await getCollection('caseStudies', ({ data }) => !data.draft)).
     </header>
 
     <ul class="grid">
-      {entries.map((entry) => <li><CaseStudyCard entry={entry} /></li>)}
+      {
+        entries.map((entry) => (
+          <li>
+            <CaseStudyCard entry={entry} />
+          </li>
+        ))
+      }
     </ul>
   </div>
 </BaseLayout>

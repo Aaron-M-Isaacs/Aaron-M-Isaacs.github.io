@@ -3,10 +3,10 @@ interface Props {
   title: string;
   description: string;
   /** Open Graph type. Case-study pages pass "article". */
-  ogType?: 'website' | 'article';
+  ogType?: "website" | "article";
 }
 
-const { title, description, ogType = 'website' } = Astro.props;
+const { title, description, ogType = "website" } = Astro.props;
 
 // Astro.site comes from `site` in astro.config.mjs, so these are absolute.
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
