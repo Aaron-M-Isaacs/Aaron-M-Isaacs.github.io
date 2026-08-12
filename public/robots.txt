@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aaron-isaacs-01.github.io/sitemap-index.xml
+Sitemap: https://Aaron-M-Isaacs.github.io/sitemap-index.xml

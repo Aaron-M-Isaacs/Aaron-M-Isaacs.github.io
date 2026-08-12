@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project overview
 
 Developer portfolio site for Aaron Isaacs, built with Astro 7 (static output) and deployed to GitHub
-Pages at <https://aaron-isaacs-01.github.io>. Content-driven: case studies are Markdown files in a content
+Pages at <https://Aaron-M-Isaacs.github.io>. Content-driven: case studies are Markdown files in a content
 collection, not hand-written pages.
 
 ## Commands

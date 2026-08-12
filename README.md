@@ -1,7 +1,7 @@
 # Aaron Isaacs portfolio page.
 
 Developer portfolio site for Aaron Isaacs, built with [Astro](https://astro.build) and hosted on
-GitHub Pages at <https://aaron-isaacs-01.github.io>.
+GitHub Pages at <https://Aaron-M-Isaacs.github.io>.
 
 ## Commands
 

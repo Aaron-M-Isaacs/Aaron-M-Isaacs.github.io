@@ -12,7 +12,7 @@ export const site = {
   tagline:
     'Backend, cloud, and distributed systems. Python and AWS by trade, Go by choice.',
   email: 'isaacsaaron@gmail.com',
-  github: 'https://github.com/aaron-isaacs-01',
+  github: 'https://github.com/Aaron-M-Isaacs',
 } as const;
 
 export interface ContactLink {
