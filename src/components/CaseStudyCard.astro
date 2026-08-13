@@ -1,8 +1,8 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  entry: CollectionEntry<'caseStudies'>;
+  entry: CollectionEntry<"caseStudies">;
 }
 
 const { entry } = Astro.props;
@@ -61,7 +61,7 @@ const href = `/case-studies/${entry.id}/`;
 
   /* Makes the whole card clickable without nesting interactive elements. */
   h3 a::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
   }

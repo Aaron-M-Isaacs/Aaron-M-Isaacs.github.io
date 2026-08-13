@@ -1,13 +1,13 @@
 ---
-import SEO from '../components/SEO.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import SEO from "../components/SEO.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description: string;
-  ogType?: 'website' | 'article';
+  ogType?: "website" | "article";
 }
 
 const { title, description, ogType } = Astro.props;

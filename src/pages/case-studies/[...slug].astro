@@ -1,10 +1,10 @@
 ---
-import { getCollection, render, type CollectionEntry } from 'astro:content';
-import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import CaseStudyLayout from "../../layouts/CaseStudyLayout.astro";
 
 export async function getStaticPaths() {
   // Drafts generate no route at all.
-  const entries = await getCollection('caseStudies', ({ data }) => !data.draft);
+  const entries = await getCollection("caseStudies", ({ data }) => !data.draft);
 
   return entries.map((entry) => ({
     params: { slug: entry.id },
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  entry: CollectionEntry<'caseStudies'>;
+  entry: CollectionEntry<"caseStudies">;
 }
 
 const { entry } = Astro.props;

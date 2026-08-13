@@ -1,29 +1,31 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import CaseStudyCard from '../components/CaseStudyCard.astro';
-import { site, contactLinks } from '../data/site';
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import { site, contactLinks } from "../data/site";
 
-const entries = (await getCollection('caseStudies', ({ data }) => !data.draft)).sort(
-  (a, b) => a.data.order - b.data.order
-);
+const entries = (
+  await getCollection("caseStudies", ({ data }) => !data.draft)
+).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout
   title="Aaron Isaacs — Backend & Cloud Engineer"
-  description="Lead Backend Software Engineer working in Python, AWS, and distributed systems, with a working interest in Go and concurrency. Open to remote backend, cloud, and DevOps roles."
+  description="Lead Backend Software Engineer working in Python, AWS, and distributed systems, with a working interest in Go and concurrency. Open to remote backend, cloud, and DevOps roles — hybrid or fully remote.."
 >
   <div class="wrap">
     <section class="hero">
       <p class="eyebrow">{site.role}</p>
       <h1>{site.name}</h1>
       <p class="lede">
-        I build backend services and cloud infrastructure — mostly Python and AWS,
-        increasingly Go. The thing I actually enjoy is concurrency: figuring out what
-        can happen at the same time, and proving it rather than assuming it.
+        I build backend services and cloud infrastructure, mostly Python and
+        AWS, but building my skills in Go and Typescript. I specialize in
+        concurrency programming and architecting solutions in cloud
+        environments.
       </p>
       <p class="availability">
-        Open to Software Engineer, Backend, and Cloud/DevOps roles — fully remote.
+        Open to Software Engineer, Backend, and Cloud/DevOps roles — hybrid or
+        fully remote.
       </p>
       <ul class="actions">
         {
@@ -41,11 +43,16 @@ const entries = (await getCollection('caseStudies', ({ data }) => !data.draft)).
     <section aria-labelledby="work">
       <h2 id="work">Selected work</h2>
       <p class="section-lede">
-        Three decisions I can defend in detail — an auth boundary, a language choice,
-        and a default I changed after measuring it.
+        Pieces of my work that I am particularly proud of.
       </p>
       <ul class="grid">
-        {entries.map((entry) => <li><CaseStudyCard entry={entry} /></li>)}
+        {
+          entries.map((entry) => (
+            <li>
+              <CaseStudyCard entry={entry} />
+            </li>
+          ))
+        }
       </ul>
     </section>
 
@@ -54,15 +61,16 @@ const entries = (await getCollection('caseStudies', ({ data }) => !data.draft)).
     <section aria-labelledby="approach" class="approach">
       <h2 id="approach">How I work</h2>
       <p>
-        Start from the problem, not the stack. Whiteboard the services, events, and
-        APIs as boxes and lines, prototype the top two or three options when that's
-        feasible, and when it isn't, weigh complexity and team familiarity over
-        theoretical optimality.
+        I prefer to follow requirements driven development, a slightly altered
+        form of test driven development. I excel at communication, which makes
+        translating requirements into tests easy, and then tests into production
+        ready code much smoother.
       </p>
       <p>
-        Slow is smooth, smooth is fast. The most elegant option has an operating cost
-        that somebody pays every week, so I'd rather ship something the team can
-        actually run.
+        "Slow is smooth, smooth is fast" is probably one of my favorite quotes.
+        That and "practice doesn't make perfect, perfect practice makes
+        perfect." These are principles that I apply to my work, and my everyday
+        life.
       </p>
       <p>
         <a href="/about/">More on how I think about this &rarr;</a>

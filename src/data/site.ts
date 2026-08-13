@@ -12,7 +12,7 @@ export const site = {
   tagline:
     'Backend, cloud, and distributed systems. Python and AWS by trade, Go by choice.',
   email: 'isaacsaaron@gmail.com',
-  github: 'https://github.com/Leg-0',
+  github: 'https://github.com/Aaron-M-Isaacs',
 } as const;
 
 export interface ContactLink {
@@ -23,5 +23,5 @@ export interface ContactLink {
 export const contactLinks: ContactLink[] = [
   { label: 'Email', href: `mailto:${site.email}` },
   { label: 'GitHub', href: site.github },
-  // { label: 'LinkedIn', href: 'https://www.linkedin.com/in/<your-handle>' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/aaron-m-isaacs/' },
 ];

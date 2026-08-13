@@ -1,7 +1,7 @@
-# Leg-0.github.io
+# Aaron Isaacs portfolio page.
 
 Developer portfolio site for Aaron Isaacs, built with [Astro](https://astro.build) and hosted on
-GitHub Pages at <https://leg-0.github.io>.
+GitHub Pages at <https://Aaron-M-Isaacs.github.io>.
 
 ## Commands
 
@@ -67,7 +67,3 @@ GitHub Pages. The repository's Pages source is set to **GitHub Actions** (not br
 `<username>.github.io` user repository, which serves from the domain root. Adding `base` would break
 every asset path and link.
 
-## Notes
-
-`context.md` and the resume PDF are gitignored reference material and are not part of the shipped
-site.

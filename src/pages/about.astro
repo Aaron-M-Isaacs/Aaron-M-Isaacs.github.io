@@ -1,55 +1,47 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { contactLinks } from '../data/site';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { contactLinks } from "../data/site";
 
 const principles = [
   {
-    title: 'Start from the problem',
-    body: 'Whiteboard the services, events, and APIs as boxes and lines first. Prototype the top two or three options when that\'s feasible. When it isn\'t, weigh complexity and team familiarity over theoretical optimality — and prefer several single-purpose resources over one resource doing many things.',
+    title: "Start from the problem",
+    body: "Forget about what the user is asking for, get to the root of what problem they're trying to solve. Often times there's a cleaner solution that makes both the developer and the user happy.",
   },
   {
-    title: 'Slow is smooth, smooth is fast',
-    body: 'Pick the tool the team can actually operate over the most technically elegant option. Elegance has an operating cost, and somebody pays it every week after the person who chose it has moved on.',
+    title: "Slow is smooth, smooth is fast",
+    body: "High quality code and building fast are no longer mutually exclusive with the help of AI. But that doesn't mean we should develop at breakneck speeds either. By using AI, and slowing down just a little, we can achieve high quality code, at still a fraction of the time.",
   },
   {
-    title: 'Security is a practice, not a phase',
-    body: 'I don\'t disable checks in development because it\'s inconvenient — SSL verification stays on. Habits carry into production, and the habit is the thing you are actually building.',
-  },
-  {
-    title: 'Events over synchronous calls where reliability matters',
-    body: 'Events queue when something downstream is broken. APIs fail silently. When a dropped message is genuinely unacceptable, that difference decides the architecture.',
+    title: "Security is a practice, not a phase",
+    body: "Practice doesn't make perfect. Perfect practice makes perfect. If you skip security checks in dev, you're doing yourself a disservice and increasing security exposure in prod. Practice security while you build, and you won't have to worry about security in production.",
   },
 ];
 ---
 
 <BaseLayout
   title="About — Aaron Isaacs"
-  description="Lead Backend Software Engineer at Koch Capabilities. Python, AWS, and distributed systems, with a working interest in Go and concurrency."
+  description="Lead Backend Software Engineer at Koch Capabilities. Python, AWS, and distributed systems, with a working interest in concurrency and cloud architecture."
 >
   <div class="wrap">
     <header class="head">
       <p class="eyebrow">About</p>
-      <h1>How I think about building things</h1>
+      <h1>Who is Aaron?</h1>
     </header>
 
     <div class="prose intro">
       <p>
         I'm a Lead Backend Software Engineer and Technical Product Lead at Koch
-        Capabilities, with roughly three and a half years of experience — about two
-        and a half of those as an individual contributor. My working stack is Python,
-        AWS, and distributed systems, and I've been building real depth in Go.
+        Capabilities, with roughly three and a half years of experience. My
+        working stack is Python, AWS, and distributed systems. I also have a few
+        years experience in C++, and I'm training on Go and Typescript.
       </p>
       <p>
-        Go was a deliberate choice over Rust. Not because Rust is worse, but because
-        Go's use cases — services and Lambdas — match the work I actually do. That's
-        the same reasoning I apply to most tooling decisions: fit to the problem in
-        front of me beats fit to the problem I'd like to have.
-      </p>
-      <p>
-        The through-line in my work is concurrency and parallelism. It started with a
-        server-patching tool that cut a process by roughly 120 hours, and it's stayed
-        interesting ever since — it's the area where intuition is least reliable and
-        measurement pays off most.
+        Born and raised in Kansas USA, I was encouraged to explore building
+        things from a young age, including my very own PC when I was just 10
+        years old. Ever since then, I've had a deep love for anything modular,
+        anything I can tweak to improve, even just slightly. Whether that be my
+        computer, code, or even my car. I enjoy rock climbing, spending time
+        with friends, cooking, storytelling, and of course, building things.
       </p>
     </div>
 
@@ -72,7 +64,10 @@ const principles = [
       <dl class="facts">
         <div>
           <dt>Current role</dt>
-          <dd>Lead Backend Software Engineer / Technical Product Lead, Koch Capabilities, LLC</dd>
+          <dd>
+            Lead Backend Software Engineer / Technical Product Lead, Koch
+            Capabilities, LLC
+          </dd>
         </div>
         <div>
           <dt>Certification</dt>
@@ -81,8 +76,8 @@ const principles = [
         <div>
           <dt>Education</dt>
           <dd>
-            B.S. Electrical Engineering, Minor in Computer Science — Wichita State
-            University, June 2023. Magna Cum Laude, 3.65/4.0.
+            B.S. Electrical Engineering, Minor in Computer Science — Wichita
+            State University, June 2023. Magna Cum Laude, 3.65/4.0.
           </dd>
         </div>
       </dl>
@@ -91,7 +86,8 @@ const principles = [
     <section aria-labelledby="contact">
       <h2 id="contact">Get in touch</h2>
       <p class="contact-lede">
-        I'm open to Software Engineer, Backend, and Cloud/DevOps roles, fully remote.
+        I'm open to Software Engineer, Backend, and Cloud/DevOps roles, hybrid
+        or remote.
       </p>
       <ul class="chips">
         {
