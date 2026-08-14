@@ -9,8 +9,8 @@ stack:
   - AWS Lambda
   - OpenAPI
 metrics:
-  - label: Endpoints covered
-    value: '~26'
+  - label: Language
+    value: 'Go/Golang'
   - label: Full run
     value: '< 2 seconds'
   - label: Manual updates needed

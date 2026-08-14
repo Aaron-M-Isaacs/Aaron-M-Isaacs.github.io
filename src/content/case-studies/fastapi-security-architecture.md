@@ -5,6 +5,7 @@ summary: >-
   service, and I experimented with different architectures to determine the right
   one for our team.
 stack:
+  - Python
   - FastAPI
   - AWS API Gateway
   - AWS Lambda
@@ -16,7 +17,7 @@ metrics:
     value: 'AWS Architecture'
   - label: Auth code in the API
     value: 'External'
-order: 1
+order: 5
 draft: false
 ---
 

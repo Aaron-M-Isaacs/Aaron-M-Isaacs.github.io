@@ -7,14 +7,14 @@ summary: >-
   of Asyncio.
 stack:
   - Python
-  - asyncio
+  - Asyncio
   - multithreading
 metrics:
   - label: Benchmark winner
     value: 'Multithreading'
   - label: Adoption
     value: 'Team-wide'
-order: 3
+order: 4
 draft: false
 ---
 
