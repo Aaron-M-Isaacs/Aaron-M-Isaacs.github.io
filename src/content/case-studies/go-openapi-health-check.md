@@ -15,7 +15,7 @@ metrics:
     value: '< 2 seconds'
   - label: Manual updates needed
     value: 'Zero'
-order: 3
+order: 2
 draft: false
 ---
 

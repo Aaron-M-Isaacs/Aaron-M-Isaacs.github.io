@@ -18,7 +18,7 @@ metrics:
   - label: Type
     value: 'Architectural Refactor'
 order: 1
-draft: true
+draft: false
 ---
 
 ## Context
