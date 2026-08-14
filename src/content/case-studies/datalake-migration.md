@@ -8,6 +8,7 @@ summary: >-
 stack:
   - Typescript
   - Auth
+  - Datalake
 metrics:
   - label: Language
     value: 'Typescript'
