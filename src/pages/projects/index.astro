@@ -3,13 +3,23 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
 
-const entries = (
-  await getCollection("projects", ({ data }) => !data.draft)
+const professional_entries = (
+  await getCollection(
+    "projects",
+    ({ data }) => !data.draft && data.professional,
+  )
+).sort((a, b) => a.data.order - b.data.order);
+
+const personal_entries = (
+  await getCollection(
+    "projects",
+    ({ data }) => !data.draft && !data.professional,
+  )
 ).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout
-  title="Projects — Aaron Isaacs"
+  title="Projects - Aaron Isaacs"
   description="Write-ups on API security architecture, a self-updating Go health check, and choosing a Python concurrency model by benchmark."
 >
   <div class="wrap">
@@ -26,7 +36,7 @@ const entries = (
 
     <ul class="grid">
       {
-        entries.map((entry) => (
+        professional_entries.map((entry) => (
           <li>
             <ProjectCard entry={entry} />
           </li>
@@ -35,13 +45,23 @@ const entries = (
     </ul>
     <header class="head">
       <p class="eyebrow">Personal Projects</p>
-      <h1>Projects in my free time</h1>
+      <h1>Works unknown</h1>
       <p class="lede">
         These are projects I've pursued outside of my professional work, either
         out of curiosity, joy, or just things I wanted to explore that didn't
         normally align with my current career trajectory.
       </p>
     </header>
+
+    <ul class="grid">
+      {
+        personal_entries.map((entry) => (
+          <li>
+            <ProjectCard entry={entry} />
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </BaseLayout>
 
