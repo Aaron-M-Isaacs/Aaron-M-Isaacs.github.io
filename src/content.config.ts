@@ -14,11 +14,11 @@ const projects = defineCollection({
   loader: glob({ base: './src/content/projects', pattern: '**/*.md' }),
   schema: z.object({
     title: z.string(),
-    /** One or two sentences; used on cards and as the page meta description. */
+    // One or two sentences; used on cards and as the page meta description. 
     summary: z.string(),
-    /** Technologies shown as chips, e.g. ['Go', 'AWS Lambda']. */
+    // Technologies shown as chips, e.g. ['Go', 'AWS Lambda'].
     stack: z.array(z.string()),
-    /** Headline numbers, e.g. { label: 'Full run', value: '< 2 seconds' }. */
+    // Headline numbers, e.g. { label: 'Full run', value: '< 2 seconds' }. 
     metrics: z
       .array(
         z.object({
@@ -27,9 +27,10 @@ const projects = defineCollection({
         })
       )
       .default([]),
-    /** Ascending display order on the landing page and index. */
+    // Ascending display order on the landing page and index.
     order: z.number(),
     draft: z.boolean().default(false),
+    professional: z.boolean().default(true),
   }),
 });
 

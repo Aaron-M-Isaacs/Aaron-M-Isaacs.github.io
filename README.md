@@ -46,6 +46,7 @@ metrics:
   - label: Runtime
     value: '< 2 seconds'
 order: 4
+professional: true
 draft: false
 ---
 

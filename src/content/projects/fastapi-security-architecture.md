@@ -19,6 +19,7 @@ metrics:
     value: 'External'
 order: 5
 draft: false
+professional: true
 ---
 
 ## Context

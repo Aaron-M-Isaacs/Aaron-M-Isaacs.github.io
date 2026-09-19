@@ -23,7 +23,7 @@ There is no test suite; this is a static content site with no application logic.
 ## Architecture
 
 - **`src/content.config.ts`** defines the single `projects` collection. Its schema (`title`,
-  `summary`, `stack`, `metrics`, `order`, `draft`) is the contract every write-up must satisfy.
+  `summary`, `stack`, `metrics`, `order`, `professional`, `draft`) is the contract every write-up must satisfy.
 - **Adding a project is a content-only change** — drop a Markdown file in
   `src/content/projects/` and it gets a card plus its own route. Do not add per-project
   components or pages.
