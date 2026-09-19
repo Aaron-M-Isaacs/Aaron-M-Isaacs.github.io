@@ -3,15 +3,15 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 /**
- * Case studies.
+ * Projects.
  *
  * The schema is deliberately shaped so that adding one of the deferred write-ups
  * later is a content-only change: drop a new Markdown file into
- * src/content/case-studies/ and it appears on the index and gets its own route.
+ * src/content/projects/ and it appears on the index and gets its own route.
  * Set `draft: true` to keep one out of the build entirely.
  */
-const caseStudies = defineCollection({
-  loader: glob({ base: './src/content/case-studies', pattern: '**/*.md' }),
+const projects = defineCollection({
+  loader: glob({ base: './src/content/projects', pattern: '**/*.md' }),
   schema: z.object({
     title: z.string(),
     /** One or two sentences; used on cards and as the page meta description. */
@@ -33,4 +33,4 @@ const caseStudies = defineCollection({
   }),
 });
 
-export const collections = { caseStudies };
+export const collections = { projects };

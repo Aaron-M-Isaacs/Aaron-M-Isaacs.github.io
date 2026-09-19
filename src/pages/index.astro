@@ -1,11 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CaseStudyCard from "../components/CaseStudyCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import { site, contactLinks } from "../data/site";
 
 const entries = (
-  await getCollection("caseStudies", ({ data }) => !data.draft)
+  await getCollection("projects", ({ data }) => !data.draft)
 ).sort((a, b) => a.data.order - b.data.order);
 ---
 
@@ -49,7 +49,7 @@ const entries = (
         {
           entries.map((entry) => (
             <li>
-              <CaseStudyCard entry={entry} />
+              <ProjectCard entry={entry} />
             </li>
           ))
         }
