@@ -8,7 +8,7 @@
 
 export const site = {
   name: 'Aaron Isaacs',
-  role: 'Lead Backend Software Engineer / Technical Product Lead',
+  role: 'Lead Backend Software & Cloud Engineer / Technical Product Lead',
   tagline:
     'Backend, cloud, and distributed systems. Python and AWS by trade, Go by choice.',
   email: 'isaacsaaron@gmail.com',
