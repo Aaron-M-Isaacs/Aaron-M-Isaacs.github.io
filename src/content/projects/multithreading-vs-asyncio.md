@@ -16,6 +16,7 @@ metrics:
     value: 'Team-wide'
 order: 4
 draft: false
+professional: true
 ---
 
 ## Context

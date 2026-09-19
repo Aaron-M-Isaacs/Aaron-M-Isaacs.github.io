@@ -2,12 +2,12 @@
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  entry: CollectionEntry<"caseStudies">;
+  entry: CollectionEntry<"projects">;
 }
 
 const { entry } = Astro.props;
 const { title, summary, stack, metrics } = entry.data;
-const href = `/case-studies/${entry.id}/`;
+const href = `/projects/${entry.id}/`;
 ---
 
 <article class="card">

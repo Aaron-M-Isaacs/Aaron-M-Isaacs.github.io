@@ -19,19 +19,19 @@ All commands run from the repository root:
 
 ```
 src/
-  content/case-studies/   Case-study write-ups (Markdown)
+  content/projects/       Project write-ups (Markdown)
   content.config.ts       Collection schema
-  components/             Header, Footer, SEO, CaseStudyCard
-  layouts/                BaseLayout, CaseStudyLayout
-  pages/                  Routes (index, about, case-studies)
+  components/             Header, Footer, SEO, ProjectCard
+  layouts/                BaseLayout, ProjectLayout
+  pages/                  Routes (index, about, projects)
   data/site.ts            Name, role, and contact links
   styles/global.css       Design tokens and base styles
 public/                   Static assets served as-is (favicon, robots.txt)
 ```
 
-## Adding a case study
+## Adding a project
 
-Create a Markdown file in `src/content/case-studies/`. The filename becomes the URL slug. No code
+Create a Markdown file in `src/content/projects/`. The filename becomes the URL slug. No code
 changes are needed — it appears on the landing page and the index, and gets its own route.
 
 ```markdown
@@ -46,6 +46,7 @@ metrics:
   - label: Runtime
     value: '< 2 seconds'
 order: 4
+professional: true
 draft: false
 ---
 

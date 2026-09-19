@@ -17,6 +17,7 @@ metrics:
     value: 'Zero'
 order: 2
 draft: false
+professional: true
 ---
 
 ## Context

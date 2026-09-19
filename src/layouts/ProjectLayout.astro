@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
-  entry: CollectionEntry<"caseStudies">;
+  entry: CollectionEntry<"projects">;
 }
 
 const { entry } = Astro.props;
@@ -11,14 +11,14 @@ const { title, summary, stack, metrics } = entry.data;
 ---
 
 <BaseLayout
-  title={`${title} — Aaron Isaacs`}
+  title={`${title} - Aaron Isaacs`}
   description={summary}
   ogType="article"
 >
   <div class="wrap">
     <article>
       <header class="head">
-        <p class="eyebrow">Case study</p>
+        <p class="eyebrow">Project</p>
         <h1>{title}</h1>
         <p class="summary">{summary}</p>
 
@@ -46,7 +46,7 @@ const { title, summary, stack, metrics } = entry.data;
     </article>
 
     <p class="back">
-      <a href="/case-studies/">&larr; All case studies</a>
+      <a href="/projects/">&larr; All projects</a>
     </p>
   </div>
 </BaseLayout>

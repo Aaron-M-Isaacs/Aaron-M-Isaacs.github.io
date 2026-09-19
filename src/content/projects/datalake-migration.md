@@ -16,6 +16,7 @@ metrics:
     value: 'Architectural Refactor'
 order: 3
 draft: false
+professional: true
 ---
 
 ## Context

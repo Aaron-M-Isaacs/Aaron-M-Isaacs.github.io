@@ -1,0 +1,90 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+
+const professional_entries = (
+  await getCollection(
+    "projects",
+    ({ data }) => !data.draft && data.professional,
+  )
+).sort((a, b) => a.data.order - b.data.order);
+
+const personal_entries = (
+  await getCollection(
+    "projects",
+    ({ data }) => !data.draft && !data.professional,
+  )
+).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Projects - Aaron Isaacs"
+  description="Write-ups on API security architecture, a self-updating Go health check, and choosing a Python concurrency model by benchmark."
+>
+  <div class="wrap">
+    <header class="head">
+      <p class="eyebrow">Professional Projects</p>
+      <h1>Work worth explaining</h1>
+      <p class="lede">
+        Each of these cases describes a project I've taken on at work throughout
+        my career that required decision-making, deep understanding of
+        architecture and code, and implementation execution practices. They are
+        a handful of cases that I am proud to present.
+      </p>
+    </header>
+
+    <ul class="grid">
+      {
+        professional_entries.map((entry) => (
+          <li>
+            <ProjectCard entry={entry} />
+          </li>
+        ))
+      }
+    </ul>
+    <header class="head">
+      <p class="eyebrow">Personal Projects</p>
+      <h1>Works unknown</h1>
+      <p class="lede">
+        These are projects I've pursued outside of my professional work, either
+        out of curiosity, joy, or just things I wanted to explore that didn't
+        normally align with my current career trajectory.
+      </p>
+    </header>
+
+    <ul class="grid">
+      {
+        personal_entries.map((entry) => (
+          <li>
+            <ProjectCard entry={entry} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .head {
+    padding-block: var(--space-xl) var(--space-l);
+    max-width: var(--measure);
+  }
+
+  .head h1 {
+    margin-block-start: var(--space-xs);
+  }
+
+  .lede {
+    color: var(--text-muted);
+    margin-block-start: var(--space-m);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--space-m);
+    list-style: none;
+    padding: 0;
+  }
+</style>

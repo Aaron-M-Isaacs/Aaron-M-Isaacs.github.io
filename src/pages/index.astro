@@ -1,17 +1,17 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CaseStudyCard from "../components/CaseStudyCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import { site, contactLinks } from "../data/site";
 
 const entries = (
-  await getCollection("caseStudies", ({ data }) => !data.draft)
+  await getCollection("projects", ({ data }) => !data.draft)
 ).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout
-  title="Aaron Isaacs — Backend & Cloud Engineer"
-  description="Lead Backend Software Engineer working in Python, AWS, and distributed systems, with a working interest in Go and concurrency. Open to remote backend, cloud, and DevOps roles — hybrid or fully remote.."
+  title="Aaron Isaacs - Backend & Cloud Engineer"
+  description="Lead Backend Software Engineer working in Python, AWS, and distributed systems, with a working interest in Go and concurrency. Open to remote backend, cloud, and DevOps roles - hybrid or fully remote.."
 >
   <div class="wrap">
     <section class="hero">
@@ -24,7 +24,7 @@ const entries = (
         environments.
       </p>
       <p class="availability">
-        Open to Software Engineer, Backend, and Cloud/DevOps roles — hybrid or
+        Open to Software Engineer, Backend, and Cloud/DevOps roles - hybrid or
         fully remote.
       </p>
       <ul class="actions">
@@ -49,7 +49,7 @@ const entries = (
         {
           entries.map((entry) => (
             <li>
-              <CaseStudyCard entry={entry} />
+              <ProjectCard entry={entry} />
             </li>
           ))
         }
